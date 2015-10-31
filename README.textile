@@ -1,0 +1,28 @@
+h2. What?
+
+A very simple web chat that uses WebSockets on the client side and Ruby EventMachine (with em-websocket) at the server side.
+
+h2. Features
+
+* Automatic scrolling of chat log
+* Automatic refocus on message input after the previous message have been sent
+
+h2. Usage
+
+# clone the repo
+# Install the *bundler* gem if you haven't already: <code>gem install bundler</code>
+# Install dependencies using *bundler*: <code>bundle install</code>
+# Start the server: <code>$ cd server; ruby server.rb</code>
+# Fire up few browser instances and point them to <code>/[path you cloned it to]/client/chat.html</code>
+# Write your nickname and click *Join chat*.
+# After you've joined, feel free to send messages by pressing *Send*
+# Any messages you send should appear on other browsers you have started
+
+Runs the server on *localhost* on port *8080*. The client is hardcoded to connect to that server and port. If you want to modify these, you need to modify the source.
+
+h2. Future improvements
+
+* Allow specifying the host and the port the server should run on
+* Allow specifying the host and the port the client should connect to
+* Allow registering nicknames and displaying a list of already registered nicknames
+* Show message after user enters or parts the chat 
