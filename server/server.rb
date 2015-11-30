@@ -11,9 +11,9 @@ module WebSocketChat
     attr_accessor :sid
     
     def send_message_unless_current(message)
-      unless message[:sid] == sid
+#      unless message[:sid] == sid
         send message.to_json
-      end
+#      end
     end
   end
   
@@ -34,10 +34,12 @@ end
 
 EventMachine::WebSocket::Connection.send :include, WebSocketChat::Connection
 
+EM.epoll
 EM.run do
   @channel = EM::Channel.new
+   puts "Starting Server...."
   
-  EventMachine::WebSocket.start(:host => '127.0.0.1', :port => 8000) do |ws|
+  EventMachine::WebSocket.start(:host => '10.0.2.15', :port => 5050) do |ws|
     puts "Listening....."
     ws.onopen {
       puts "-- someone opened WebSocket to the chat server"

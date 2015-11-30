@@ -99,7 +99,7 @@ commHandler = function() {
   
   return {
     init: function() {
-      webSocket = new WebSocket("ws:localhost:8000");
+      webSocket = new WebSocket("ws:localhost:8081");
       webSocket.onmessage = messageReceived; 
       webSocket.onerror = errorOccured;
       webSocket.onclose = errorOccured;
